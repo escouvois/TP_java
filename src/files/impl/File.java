@@ -1,6 +1,6 @@
-package files_bastien.impl;
+package files.impl;
 
-import files_bastien.exception.EmptyQueueException;
+import files.exception.EmptyQueueException;
 
 /**
  * Interface représentant une File.

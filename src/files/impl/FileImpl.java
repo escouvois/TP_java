@@ -1,31 +1,28 @@
-package files_bastien.impl;
+package files.impl;
 
-import files_bastien.exception.EmptyQueueException;
+import files.exception.EmptyQueueException;
 
 public class FileImpl<E> implements File<E> {
 
-	private int length;
 	private Maillon first;
 	private Maillon last;
 
 	private class Maillon {
 		E item;
-		Maillon next;
+		Maillon next = null;
 	}
 	
 	public FileImpl() {
 		this.first = null;
 		this.last = null;
-		this.length = 0;
 	}
 
 	@Override
-	public E remove() throws EmptyQueueException {
+	public E remove() throws EmptyQueueException{
 		if(isEmpty())
 			throw new EmptyQueueException("La liste est vide.");
 		Maillon toRemoved = this.first;
 		this.first = this.first.next;
-		length--;
 		if (isEmpty())
 			this.last = null;
 		return toRemoved.item;
@@ -49,12 +46,20 @@ public class FileImpl<E> implements File<E> {
 		}else{
 			old.next = this.last;
 		}
-		this.length++;
 	}
 
 	@Override
 	public int length() {
-		return this.length;
+		int i = 0;
+		Maillon act = first;
+
+        if (first != null) {
+            i++;
+            while (act.next != null)
+            	act = act.next;
+                i++;
+        }
+        return i;
 	}
 
 	@Override

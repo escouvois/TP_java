@@ -5,7 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import files_bastien.exception.EmptyQueueException;
+import files.impl.FileImpl;
+import files.exception.EmptyQueueException;
 
 public class FileImplTest {
 	
@@ -20,7 +21,7 @@ public class FileImplTest {
 	public void testFileImplAddInEmptyFile() {
 		
 		testFile.add(new Integer(1));
-		
+		System.out.println(testFile.length());
 		if(testFile.length() != 1) {
 			fail();
 		}
