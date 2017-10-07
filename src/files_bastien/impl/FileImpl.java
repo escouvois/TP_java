@@ -61,38 +61,4 @@ public class FileImpl<E> implements File<E> {
 	public boolean isEmpty() {
 		return this.first == null;
 	}
-	
-	public static void main(String[] args) {
-		FileImpl<Integer> f = new FileImpl<Integer>();
-		f.add(2);
-		f.add(3);
-		System.out.println(f.length());
-		System.out.println(f.isEmpty());
-		try {
-			System.out.println(f.first());
-		} catch (EmptyQueueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			System.out.println(f.remove());
-		} catch (EmptyQueueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		f.add(4);
-		try {
-			System.out.println(f.remove());
-		} catch (EmptyQueueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(f.length());
-		try {
-			System.out.println(f.first());
-		} catch (EmptyQueueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 }
