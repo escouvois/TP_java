@@ -1,7 +1,16 @@
 package filesV2;
 
-import java.util.Queue;
-
+/**
+ * Interface de fabrique de file.
+ * 
+ * @author Bastien ESCOUVOIS, Lucas TAILLEBOURG, Ibrahima SOW.
+ * @param <E>
+ */
 public interface LinkedQueueFactory<E> {
-	FileImpl<E> creerListe();
+	
+	/**
+	 * Créer une file.
+	 * @return la file créée.
+	 */
+	FileImpl<E> creerFile();
 }

@@ -2,8 +2,12 @@ package filesV2;
 
 public class Test {
 	
+	/**
+	 * Point d'entrée de l'application.
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		FileImpl<Integer> file = new LinkedQueueFactoryImpl<Integer>().creerListe();
+		FileImpl<Integer> file = new LinkedQueueFactoryImpl<Integer>().creerFile();
 		
 		
 		file.add(new Integer(1));
