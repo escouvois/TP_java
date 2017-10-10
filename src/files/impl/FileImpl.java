@@ -1,5 +1,6 @@
 package files.impl;
 
+
 import files.exception.EmptyQueueException;
 
 public class FileImpl<E> implements File<E> {
@@ -10,7 +11,7 @@ public class FileImpl<E> implements File<E> {
 	private class Maillon {
 		E item;
 		Maillon next = null;
-	}
+	} 
 	
 	public FileImpl() {
 		this.first = null;
