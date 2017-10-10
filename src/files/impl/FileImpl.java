@@ -51,14 +51,19 @@ public class FileImpl<E> implements File<E> {
 	@Override
 	public int length() {
 		int i = 0;
-		Maillon act = first;
-
-        if (first != null) {
-            i++;
-            while (act.next != null)
-            	act = act.next;
-                i++;
-        }
+		Maillon act = this.first;
+		
+		if(act.next == null) {
+			return 1;
+		}
+		i++;
+		while(act != last) {
+			act = act.next;
+			i++;
+		}
+		
+		
+		
         return i;
 	}
 

@@ -33,6 +33,7 @@ public class FileImplTest {
 		testFile.add(new Integer(1));
 		testFile.add(new Integer(5));
 
+		System.out.println(testFile.length());
 		if(testFile.length() != 2) {
 			fail();
 		}
