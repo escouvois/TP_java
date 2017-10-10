@@ -5,23 +5,22 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import files.impl.FileImpl;
+import files.impl.FilePleine;
 import files.exception.EmptyQueueException;
 
 public class FileImplTest {
 	
-	FileImpl testFile;
+	FilePleine testFile;
 	
 	@Before
 	public void beforeEachTest() {
-		testFile = new FileImpl();
+		testFile = new FilePleine();
 	}
 
 	@Test
 	public void testFileImplAddInEmptyFile() {
 		
 		testFile.add(new Integer(1));
-		System.out.println(testFile.length());
 		if(testFile.length() != 1) {
 			fail();
 		}

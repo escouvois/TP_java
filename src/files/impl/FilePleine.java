@@ -2,33 +2,31 @@ package files.impl;
 
 import files.exception.EmptyQueueException;
 
-public class FileImpl<E> implements File<E> {
+public class FilePleine<E> implements File<E> {
 
-	private Maillon first;
-	private Maillon last;
+//	private Maillon first;
+//	private Maillon last;
 
 	private class Maillon {
 		E item;
 		Maillon next = null;
 	}
 	
-	public FileImpl() {
-		this.first = null;
-		this.last = null;
+	public FilePleine(E e) {
+		
 	}
 
-	@Override
 	public E remove() throws EmptyQueueException{
-		if(isEmpty())
-			throw new EmptyQueueException("La liste est vide.");
-		Maillon toRemoved = this.first;
-		this.first = this.first.next;
-		if (isEmpty())
-			this.last = null;
-		return toRemoved.item;
+//		if(isEmpty())
+//			throw new EmptyQueueException("La liste est vide.");
+//		Maillon toRemoved = this.first;
+//		this.first = this.first.next;
+//		if (isEmpty())
+//			this.last = null;
+//		return toRemoved.item;
+		
 	}
 
-	@Override
 	public E first() throws EmptyQueueException {
 		if(isEmpty())
 			throw new EmptyQueueException("La liste est vide.");
@@ -36,7 +34,7 @@ public class FileImpl<E> implements File<E> {
 	}
 
 	@Override
-	public void add(E e) {
+	public File add(E e) {
 		Maillon old = this.last;
 		this.last = new Maillon();
 		this.last.next = null;
@@ -46,19 +44,22 @@ public class FileImpl<E> implements File<E> {
 		}else{
 			old.next = this.last;
 		}
+		return this;
 	}
 
 	@Override
 	public int length() {
 		int i = 0;
-		Maillon act = first;
-
-        if (first != null) {
-            i++;
-            while (act.next != null)
-            	act = act.next;
-                i++;
-        }
+		Maillon act = this.first;
+		
+		if(act.next == null) {
+			return 1;
+		}
+		i++;
+		while(act != last) {
+			act = act.next;
+			i++;
+		}
         return i;
 	}
 

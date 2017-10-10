@@ -28,7 +28,7 @@ public interface File<E> {
 	 * Insère un élément en queue de file.
 	 * @param e élément à insérer.
 	 */
-	void add(E e);
+	File add(E e);
 
 	/**
 	 * Retourne la longueur de la file.
