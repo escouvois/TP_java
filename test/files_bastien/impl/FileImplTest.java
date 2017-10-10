@@ -71,6 +71,7 @@ public class FileImplTest {
 	@Test
 	public void testFileImplisEmptyNotFile() {
 		testFile.add(new Integer(1));
+		
 		if(testFile.isEmpty()) {
 			fail();
 		}
@@ -91,6 +92,7 @@ public class FileImplTest {
 	@Test
 	public void testFileImplRemoveOnNotEmptyFile() {
 		testFile.add(new Integer(1));
+		
 		try {
 			testFile.remove();
 		}catch(Exception e) {
