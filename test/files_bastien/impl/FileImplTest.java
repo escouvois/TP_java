@@ -21,7 +21,6 @@ public class FileImplTest {
 	public void testFileImplAddInEmptyFile() {
 		
 		testFile.add(new Integer(1));
-		System.out.println(testFile.length());
 		if(testFile.length() != 1) {
 			fail();
 		}
@@ -33,7 +32,6 @@ public class FileImplTest {
 		testFile.add(new Integer(1));
 		testFile.add(new Integer(5));
 
-		System.out.println(testFile.length());
 		if(testFile.length() != 2) {
 			fail();
 		}
