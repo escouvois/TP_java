@@ -66,4 +66,12 @@ public class FileImpl<E> implements File<E> {
 	public boolean isEmpty() {
 		return this.first == null;
 	}
+
+	@Override
+	public String toString() {
+		return "FileImpl [first=" + first + ", last=" + last + "]";
+	}
+	
+	
+	
 }
