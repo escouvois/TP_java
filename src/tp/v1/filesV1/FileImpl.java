@@ -1,6 +1,6 @@
-package filesV1;
+package tp.v1.filesV1;
 
-import files.exception.EmptyQueueException;
+import tp.v1.exceptions.EmptyQueueException;
 
 public class FileImpl<E> implements File<E> {
 

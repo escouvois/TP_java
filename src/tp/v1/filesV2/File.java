@@ -1,4 +1,4 @@
-package filesV2;
+package tp.v1.filesV2;
 
 /**
  * Interface proposée pour manipuler une file générique.
