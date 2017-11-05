@@ -1,13 +1,20 @@
-package filesV2;
+package tp.v1.filesV2;
 
-import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+/**
+ * Implémentation d'une file générique en utilisant les LinkedQueue.
+ * @author Bastien ESCOUVOIS
+ * @param <E>
+ */
 public class FileImpl<E> implements File<E> {
 
 	private Queue<E> file;
 	
+	/**
+	 * Constructeur qui instancie une file en utilisant le constructeur LinkedBlockingQueue.
+	 */
 	public FileImpl() {
 		this.file = new LinkedBlockingQueue<E>();
 	}

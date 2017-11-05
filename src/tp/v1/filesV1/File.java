@@ -1,6 +1,6 @@
-package files.impl;
+package tp.v1.filesV1;
 
-import files.exception.EmptyQueueException;
+import tp.v1.exceptions.EmptyQueueException;
 
 /**
  * Interface représentant une File.
