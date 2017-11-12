@@ -26,7 +26,7 @@ public interface FileImmutable<E> extends File<E> {
 	}
 	
 	/**
-	 * Renvoi la liste sans la tête.
+	 * Renvoie la liste sans la tête.
 	 */
 	@Override
 	default FileImmutable<E> retrait() {

@@ -26,8 +26,8 @@ public interface File<E> extends Iterable<E> {
 	File<E> ajout(File<E> secondeFile);
 	
 	/**
-	 * On fait une méthode recursive.
-	 * @return la représentation sous forme de string de la liste
+	 * Méthode recursive permettant d'afficher la liste.
+	 * @return la représentation sous forme de string de la liste.
 	 */
 	default String representation() {
 		return this.premier().toString().concat(this.suivants().representation());
@@ -40,12 +40,12 @@ public interface File<E> extends Iterable<E> {
 	 * @return boolean : un boolean exprimant si les files sont équivalentes ou non.
 	 */
 	default boolean estEgal(File<E> file){
-		//Si les deux file sont vides, elles sont égales, de plus, il s'agit d'une fin de récursivité.
+		//Si les deux file sont vides, elles sont égales, de plus, il s'agit d'une condition d'arrêt de la récursivité.
 		if(this.estVide() && file.estVide()){
 			return true;
 		}
 		
-		//Si une file est vide et pas l'autre, elles ne sont pas égales, il s'agit azussi d'une fin de récursivité.
+		//Si une file est vide et pas l'autre, elles ne sont pas égales. Il s'agit aussi d'une condition d'arrêt de la récursivité.
 		if(this.estVide() && !file.estVide() || !this.estVide() && file.estVide()){
 			return false;
 		}
@@ -55,7 +55,7 @@ public interface File<E> extends Iterable<E> {
 			return false;
 		}
 		
-		//Si on arrive pas a prouver l'égalité jusqu'ici, on descend d'un niveau dans la récursivité.
+		//Si on n'arrive pas à prouver l'égalité jusqu'ici, on descend d'un niveau dans la récursivité.
 		return(this.suivants().estEgal(file.suivants()));
 	}
 }
