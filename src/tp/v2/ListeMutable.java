@@ -1,5 +1,7 @@
 package tp.v2;
 
+import java.util.Iterator;
+
 public interface ListeMutable<E> extends Liste<E> {
 
 	/*
@@ -73,13 +75,12 @@ public interface ListeMutable<E> extends Liste<E> {
 			public ListeMutable<E> miroir() {
 				ListeMutable<E> retour = vide();
 				ListeMutable<E> tmp = this;
-				while (!tmp.estVide()) {
+				Iterator<E> itr = this.iterator();
+				while (itr.hasNext()) {
 					retour = cons(tmp.tete(), retour);
 					tmp = tmp.reste();
 				}
-
 				return retour;
-
 			}
 
 			public String toString() {
@@ -105,7 +106,7 @@ public interface ListeMutable<E> extends Liste<E> {
 			}
 
 			public ListeMutable<E> miroir() {
-				return this;
+				return null;
 			}
 
 			public String toString() {
