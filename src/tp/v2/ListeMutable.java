@@ -21,7 +21,6 @@ public interface ListeMutable<E> extends Liste<E> {
 	 * Services
 	 */
 	default ListeMutable<E> miroir() {
-		// TODO
 		return null;
 	}
 
@@ -83,7 +82,7 @@ public interface ListeMutable<E> extends Liste<E> {
 			}
 
 			public String toString() {
-				return (tete.toString() + " " + reste.toString());
+				return (tete.toString().concat(reste.toString()));
 			}
 
 			public void changerReste(ListeMutable<E> reste) {
@@ -98,8 +97,6 @@ public interface ListeMutable<E> extends Liste<E> {
 
 	public static <E> ListeMutable<E> vide() {
 		return new ListeMutable<E>() {
-			// TODO Définir les méthodes utiles.
-
 			public boolean casVide() {
 				return true;
 			}
