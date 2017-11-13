@@ -34,14 +34,11 @@ public interface Liste<E> extends Iterable<E> {
 	 * Services
 	 */
 	default Iterator<E> iterator() {
-		// TODO
-		return new IterateurListe<E>(); // Compléter puis utiliser
-										// IterateurListe.
+		return new IterateurListe<E>(); 
 	}
 
 	default Liste<E> miroir() {
-		// TODO
-		return null;
+		throw new UnsupportedOperationException();
 	}
 	/*
 	 * Fabriques (statiques)
@@ -111,9 +108,10 @@ public interface Liste<E> extends Iterable<E> {
 						if (!hasNext()) {
 							throw new UnsupportedOperationException();
 						}
-						E tmp2 = tmp.tete();
+	
 						tmp = tmp.reste();
-						return tmp2;
+						tmp = cons(tmp.tete(), tmp.reste());
+						return tmp.tete();
 					}
 				};
 			}
@@ -121,13 +119,12 @@ public interface Liste<E> extends Iterable<E> {
 			public Liste<E> miroir() {
 				Liste<E> retour = vide();
 				Liste<E> tmp = this;
-				while (!tmp.estVide()) {
+				Iterator<E> itr = this.iterator();
+				while (itr.hasNext()) {
 					retour = cons(tmp.tete(), retour);
 					tmp = tmp.reste();
 				}
-
 				return retour;
-
 			}
 
 			public String toString() {
