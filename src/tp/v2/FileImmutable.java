@@ -30,7 +30,7 @@ public interface FileImmutable<E> extends File<E> {
 	 */
 	@Override
 	default FileImmutable<E> retrait() {
-		return this.retrait();
+		return this.suivants();
 	}
 	
 	// Complexité O(|secondeFile|)
