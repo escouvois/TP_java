@@ -74,7 +74,7 @@ public interface Liste<E> extends Iterable<E> {
 		};
 	}
 
-	public static <E> Liste<E> cons(E t, Liste<E> r) {
+	public static <E> Liste<E> cons(E t, Liste<E> r){
 		return new Liste<E>() {
 			public E tete() {
 				return t;

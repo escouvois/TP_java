@@ -103,6 +103,10 @@ public interface ListeMutable<E> extends Liste<E> {
 				return null;
 			}
 			
+			public int taille() {
+				return 0;
+			}
+			
 			public ListeMutable<E> reste(){
 				return null;
 			}
@@ -112,7 +116,7 @@ public interface ListeMutable<E> extends Liste<E> {
 			}
 
 			public ListeMutable<E> miroir() {
-				return null;
+				return this;
 			}
 
 			public String toString() {
