@@ -57,7 +57,7 @@ public interface ListeMutable<E> extends Liste<E> {
 					Liste<E> tmp = cons(tete, reste);
 
 					public boolean hasNext() {
-						return !tmp.estVide();
+						return !tmp.reste().estVide();
 					}
 
 					public E next() {
@@ -75,7 +75,7 @@ public interface ListeMutable<E> extends Liste<E> {
 				ListeMutable<E> retour = vide();
 				ListeMutable<E> tmp = this;
 				Iterator<E> itr = this.iterator();
-				while (itr.hasNext()) {
+				while (itr.hasNext() && tmp.tete()!=null) {
 					retour = cons(tmp.tete(), retour);
 					tmp = tmp.reste();
 				}
@@ -98,6 +98,15 @@ public interface ListeMutable<E> extends Liste<E> {
 
 	public static <E> ListeMutable<E> vide() {
 		return new ListeMutable<E>() {
+			
+			public E tete(){
+				return null;
+			}
+			
+			public ListeMutable<E> reste(){
+				return null;
+			}
+			
 			public boolean casVide() {
 				return true;
 			}
