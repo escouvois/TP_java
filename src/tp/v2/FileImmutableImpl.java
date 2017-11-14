@@ -2,12 +2,12 @@ package tp.v2;
 
 import tp.v1.exceptions.EmptyQueueException;
 
-public class FileMutableDoubleListe<E> {
-	ListeMutable<E> liste = ListeMutable.vide();
-	ListeMutable<E> fin = ListeMutable.vide();
+public class FileImmutableImpl<E> {
+	Liste<E> liste = Liste.vide();
+	Liste<E> fin = Liste.vide();
 	
 	public void ajout(E element) {
-		fin = ListeMutable.cons(element, fin);
+		fin = Liste.cons(element, fin);
 		
 		if(liste.casVide()) {
 			liste = fin.miroir();
@@ -22,7 +22,7 @@ public class FileMutableDoubleListe<E> {
 		liste = liste.reste();
 		if(liste.casVide()) {
 			liste = fin.miroir();
-			fin = ListeMutable.vide();
+			fin = Liste.vide();
 		}
 	}
 }

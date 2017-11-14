@@ -75,10 +75,17 @@ public interface ListeMutable<E> extends Liste<E> {
 				ListeMutable<E> retour = vide();
 				ListeMutable<E> tmp = this;
 				Iterator<E> itr = this.iterator();
-				while (itr.hasNext() && tmp.tete()!=null) {
+				
+				if(!tmp.estVide() && !itr.hasNext())
 					retour = cons(tmp.tete(), retour);
-					tmp = tmp.reste();
+				else{
+				
+					while (itr.hasNext() && tmp.tete()!=null) {
+						retour = cons(tmp.tete(), retour);
+						tmp = tmp.reste();
+					}
 				}
+				
 				return retour;
 			}
 
