@@ -18,11 +18,29 @@ public class Test {
 		
 		ListeMutable<Integer> liste = ListeMutable.cons(un, vide);
 		System.out.println(liste);
-		liste.changerReste(ListeMutable.cons(3, liste.reste()));
-		System.out.println(liste);
-		liste.changerReste(ListeMutable.cons(4, liste.reste()));
-		System.out.println(liste);
+		liste = liste.miroir();
+		liste = ListeMutable.cons(3, liste);
 		liste = liste.miroir();
 		System.out.println(liste);
+		
+		liste = liste.miroir();
+		liste = ListeMutable.cons(4, liste);
+		liste = liste.miroir();
+		System.out.println(liste);
+		
+		liste = liste.miroir();
+		liste = ListeMutable.cons(5, liste);
+		liste = liste.miroir();
+		System.out.println(liste);
+		
+		liste.changerTete(6);
+		System.out.println(liste);
+		
+		ListeMutable<Integer> listeReste = ListeMutable.cons(7, ListeMutable.cons(8, vide));
+		System.out.println(listeReste);
+		liste.changerReste(listeReste);
+		System.out.println(liste);
+		
+		System.out.println(liste.miroir());
 	}
 }
