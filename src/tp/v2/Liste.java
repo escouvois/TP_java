@@ -6,26 +6,50 @@ public interface Liste<E> extends Iterable<E> {
 	/*
 	 * Accesseurs
 	 */
+	/**
+	 * Méthode pour determiner si la liste est vide
+	 * @return Boolean déterminant si la liste est vide
+	 */
 	default boolean casVide() {
 		return false;
 	}
 
+	/**
+	 * Méthode pour retourner la tête de la liste
+	 * @return Exception car la méthode doit être redéfini
+	 */
 	default E tete() {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Méthode pour retourner le reste de la liste
+	 * @return Exception car la méthode doit être redéfini
+	 */
 	default Liste<E> reste() {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Méthode pour déterminer si la liste est construite
+	 * @return Boolean déterminant si la liste est construite
+	 */
 	default boolean casCons() {
 		return false;
 	}
 
+	/**
+	 * Méthode déterminant la taille de la liste
+	 * @return Entier representant la taille de la liste
+	 */
 	default public int taille() {
 		return 0;
 	}
 
+	/**
+	 * Méthode pour déterminer si la liste est vide
+	 * @return Boolean determinant si la liste est vide
+	 */
 	default public boolean estVide() {
 		return this.taille() == 0;
 	}
@@ -33,17 +57,31 @@ public interface Liste<E> extends Iterable<E> {
 	/*
 	 * Services
 	 */
+	/**
+	 * Itérateur pour parcourir la liste
+	 * @return L'itérateur de la liste
+	 */
 	default Iterator<E> iterator() {
 		return new IterateurListe<E>(); 
 	}
 
+	/**
+	 * Méthode pour renverser la liste
+	 * @return Nouvelle liste renversée
+	 */
 	default Liste<E> miroir() {
 		throw new UnsupportedOperationException();
 	}
+
+
 	/*
 	 * Fabriques (statiques)
 	 */
-
+	/**
+	 * Fabrique pour créer une liste vide
+	 * @param <E> Type de la liste à créer
+	 * @return Nouvelle liste vide qui vient d'être créée
+	 */
 	public static <E> Liste<E> vide() {
 		return new Liste<E>() {
 
@@ -74,6 +112,13 @@ public interface Liste<E> extends Iterable<E> {
 		};
 	}
 
+	/**
+	 * Fabrique pour créer une nouvelle liste contenant au moins un élément
+	 * @param t Tête de la liste
+	 * @param r Reste de la liste
+	 * @param <E> Type de la liste à créer
+	 * @return Nouvelle liste créée
+	 */
 	public static <E> Liste<E> cons(E t, Liste<E> r){
 		return new Liste<E>() {
 			public E tete() {
@@ -127,6 +172,10 @@ public interface Liste<E> extends Iterable<E> {
 				return retour;
 			}
 
+			/**
+			 * Méthode pour afficher l'état de la liste
+			 * @return Chaîne de charactères contenant l'état de la liste
+			 */
 			public String toString() {
 				return (t.toString() + " " + r.toString());
 			}
