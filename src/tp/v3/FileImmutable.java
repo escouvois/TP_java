@@ -16,15 +16,7 @@ public interface FileImmutable<E> extends File<E> {
 	/*
 	 * Services
 	 */
-	
-	/**
-	 * Ajoute un élément à la fin de la liste.
-	 */
-	@Override
-	default FileImmutable<E> ajout(E dernierDansFile) {
-		return creer(dernierDansFile);
-	}
-	
+		
 	/**
 	 * Renvoie la liste sans la tête.
 	 */

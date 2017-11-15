@@ -37,17 +37,7 @@ public interface FileMutable<E> extends File<E> {
 	 * Creer une copie de la liste actuelle.
 	 * @return
 	 */
-	FileMutable<E> creerCopie();
-	
-	
-	/*
-	 * Services
-	 */
-	@Override
-	default FileMutable<E> ajout(E dernierDansFile) {
-		this.ajouter(dernierDansFile);
-		return this;
-	}
+	FileMutable<E> creerCopie(); 
 	
 	@Override
 	default FileMutable<E> retrait() {
