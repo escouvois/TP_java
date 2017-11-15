@@ -11,7 +11,7 @@ public interface ListeMutable<E> extends Liste<E> {
 	default ListeMutable<E> reste() {
 		throw new UnsupportedOperationException();
 	}
-
+ 
 	/**
 	 * Méthode pour changer le reste de la liste
 	 * @param reste Nouveau reste à changer par l'ancien
