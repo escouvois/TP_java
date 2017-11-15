@@ -42,5 +42,10 @@ public class Test {
 		System.out.println(liste);
 		
 		System.out.println(liste.miroir());
+		
+		System.out.println();
+		System.out.println("File Mutable");
+		System.out.println("---------------------------------");
+		
 	}
 }

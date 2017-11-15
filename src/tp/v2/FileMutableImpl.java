@@ -1,28 +1,69 @@
 package tp.v2;
 
-import tp.v1.exceptions.EmptyQueueException;
+import java.util.Iterator;
 
-public class FileMutableImpl<E> {
+public class FileMutableImpl<E> implements FileMutable<E> {
 	ListeMutable<E> liste = ListeMutable.vide();
 	ListeMutable<E> fin = ListeMutable.vide();
-	
-	public void ajout(E element) {
+
+	@Override
+	public E premier() {
+		return liste.tete();
+	}
+
+	@Override
+	public FileMutable<E> suivants() {
+		return null;
+	}
+
+	@Override
+	public int taille() {
+		return liste.taille() + fin.taille();
+	}
+
+
+	@Override
+	public Iterator<E> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void ajouter(E element) {
+		fin = fin.miroir();
 		fin = ListeMutable.cons(element, fin);
-		
-		if(liste.casVide()) {
+		fin = fin.miroir();
+	}
+
+	@Override
+	public void retirer() {
+		if (liste.casVide()) {
 			liste = fin.miroir();
 			fin = ListeMutable.vide();
 		}
 	}
+
+	@Override
+	public FileMutable<E> creer() {
+		return null;
+	}
+
+	@Override
+	public FileMutable<E> creerCopie() {
+		FileMutable<E> copie = this;
+		return copie;
+	}
+
 	
-	public void retrait() throws EmptyQueueException {
-		if(liste.casVide()) {
-			throw new EmptyQueueException("La liste est vide");
-		}
-		liste = liste.reste();
-		if(liste.casVide()) {
-			liste = fin.miroir();
-			fin = ListeMutable.vide();
-		}
+	/**
+	 * Ajouter une liste à la liste
+	 * @param secondeFile
+	 */
+	@Override
+	public void ajouter(File<E> secondeFile) {
+		for(E e : secondeFile){
+            ajouter(e);
+        }
 	}
+
 }
