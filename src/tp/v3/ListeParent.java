@@ -4,11 +4,13 @@ import java.util.Iterator;
 
 public interface ListeParent<E> extends Iterable<E> {
 
-	default public ListeParent<E> miroir(ListeParent<E> liste){
+	default public ListeParent<E> miroirCons(ListeParent<E> liste){
 		
-		for (E e : liste) {
-			
-		}
+		return Liste
+	}
+	
+	default public ListeParent<E> miroirVide(ListeParent<E> liste){
+		
 	}
 	
 }
