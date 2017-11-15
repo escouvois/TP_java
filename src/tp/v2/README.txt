@@ -1,19 +1,15 @@
-Les files - Une interface, plusieurs implémentations, mutables, immutables
+Les files - Une interface, plusieurs implï¿½mentations, mutables, immutables
 
 Version 2
 #########
 
-principes de conception suivis pour les interfaces et les classes d'implémentation
+principes de conception suivis pour les interfaces et les classes d'implï¿½mentation
 ----------------------------------------------------------------------------------
 
 
 principes de nommage suivis
 ---------------------------
-
-
-complexité des opérations
--------------------------
-
+Toutes les implÃ©mentations sont prÃ©fixÃ©es avec "Impl". Les interfaces n'ont pas de nommage particulier.
 
 lien vers la documentation
 --------------------------

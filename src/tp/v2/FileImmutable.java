@@ -13,9 +13,9 @@ public interface FileImmutable<E> extends File<E> {
 	FileImmutable<E> creer();
 
 	/**
-	 * Méthode pour créer une file immutable and un élément
-	 * @param dernier : LÉlement à ajouter
-	 * @return FileImmutable : La nouvelle file créée avec l'élément.
+	 * Méthode pour créer une file immutable et un élément
+	 * @param dernier : L'élement à ajouter
+	 * @return FileImmutable : la nouvelle file créée avec l'élément.
 	 */
 	FileImmutable<E> creer(E dernier);
 	

@@ -9,8 +9,8 @@ package tp.v1.filesV1;
 public interface LinkedQueueFactory<E> {
 	
 	/**
-	 * Créer une file.
-	 * @return la file créée.
+	 * Creer une file.
+	 * @return la file creee.
 	 */
 	FileImpl<E> creerFile();
 }

@@ -3,30 +3,29 @@ package tp.v1.filesV1;
 import tp.v1.exceptions.EmptyQueueException;
 
 /**
- * Interface représentant une File.
+ * Interface representant une File.
  * 
  * @author Lucas TAILLEBOURG, Ibrahima SOW, Bastien ESCOUVOIS.
- * @param <E>
+ * @param <E> type gÃ©nÃ©rique
  */
 public interface File<E> {
 	
 	/**
-	 * Retire la tête de la file.
-	 * @throws EmptyQueueException 
+	 * Retire la tete de la file.
+	 * @throws EmptyQueueException la file est vide
 	 */
 	E remove() throws EmptyQueueException;
 
 	/**
 	 * Retourne la tete de la file.
 	 * 
-	 * @return tete de file
-	 * @throws EmptyQueueException 
+	 * @throws EmptyQueueException la file est vide
 	 */
 	E first() throws EmptyQueueException;
 
 	/**
-	 * Insère un élément en queue de file.
-	 * @param e élément à insérer.
+	 * Insï¿½re un element en queue de file.
+	 * @param e element a inserer.
 	 */
 	void add(E e);
 

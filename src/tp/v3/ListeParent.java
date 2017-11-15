@@ -6,7 +6,7 @@ public interface ListeParent<E> extends Iterable<E> {
 
 	default public ListeParent<E> miroirCons(ListeParent<E> liste){
 		
-		return Liste
+		return Liste;
 	}
 	
 	default public ListeParent<E> miroirVide(ListeParent<E> liste){
