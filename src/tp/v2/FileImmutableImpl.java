@@ -41,9 +41,35 @@ public class FileImmutableImpl<E> implements FileImmutable<E> {
 
 	@Override
 	public FileImmutable<E> suivants() {
-		// TODO Auto-generated method stub
-		return null;
+		if(liste.estVide() && fin.estVide()) return null;
+		
+		FileImmutable<E> result = creer();
+		
+		if(liste.estVide()) {
+			for (E e : fin.reste()) {
+				result = creer(e);
+			}
+			return result;
+		}
+		if(fin.estVide()) {
+			for (E e : liste.reste()) {
+				result = creer(e);
+			}
+			return result;
+		}
+		
+		
+		for (E e : liste.reste()) {
+			result = creer(e);
+		}
+		for (E e : fin) {
+			result = creer(e);
+		}
+		
+		return result;
+		
 	}
+	
 
 	@Override
 	public FileImmutable<E> creer() {
@@ -52,8 +78,18 @@ public class FileImmutableImpl<E> implements FileImmutable<E> {
 
 	@Override
 	public FileImmutable<E> creer(E dernier) {
-		// TODO Auto-generated method stub
-		return null;
+		FileImmutable<E> result = creer();
+		
+		if(liste.estVide()) {
+			
+			fin = Liste.cons(dernier, fin);
+			liste = fin.miroir();
+			fin = Liste.vide();
+			return this;
+		}
+		fin = Liste.cons(dernier, fin);
+		
+		return this;
 	}
 
 }
