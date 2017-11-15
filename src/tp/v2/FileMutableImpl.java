@@ -13,7 +13,23 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 
 	@Override
 	public FileMutable<E> suivants() {
-		return null;
+		if(liste.estVide() && fin.estVide()) return null;
+		
+		FileMutable<E> result = creer();
+		
+		if(liste.estVide()) {
+			liste = fin.reste();
+			return this;
+		}
+		
+		if(fin.estVide()) {
+			liste = liste.reste();
+			return this;
+		}
+		
+		
+		liste = liste.reste();
+		return this;
 	}
 
 	@Override
@@ -24,8 +40,25 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Iterator<E>() {
+
+			@Override
+			public boolean hasNext() {
+				return liste.estVide();
+			}
+
+			@Override
+			public E next() {
+				if(!hasNext()) return null;
+				if(liste.iterator().hasNext()) {
+					return liste.iterator().next();
+				}
+				if(!liste.iterator().hasNext() && !liste.estVide()) {
+					return fin.tete();
+				}
+				return fin.iterator().next();
+			}
+		};
 	}
 
 	@Override
@@ -44,11 +77,6 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 	}
 
 	@Override
-	public FileMutable<E> creer() {
-		return null;
-	}
-
-	@Override
 	public FileMutable<E> creerCopie() {
 		FileMutable<E> copie = this;
 		return copie;
@@ -64,6 +92,11 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 		for(E e : secondeFile){
             ajouter(e);
         }
+	}
+
+	@Override
+	public FileMutable<E> creer() {
+		return null;
 	}
 
 }

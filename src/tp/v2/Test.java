@@ -64,12 +64,8 @@ public class Test {
 		for(int i=1; i<=ajout; i++)
 			fileMut.ajout(i);
 
-		try {
-			for(int i=1; i<=retrait; i++)
-				fileMut.retrait();
-		} catch (EmptyQueueException e) {
-			e.printStackTrace();
-		}
+		for(int i=1; i<=retrait; i++)
+			fileMut.retrait();
 
 		temps = threadBean.getCurrentThreadCpuTime() - temps;
 		System.out.println(fileMut.getClass() + " - ajout/retrait: " + (temps / diviseur));
@@ -82,12 +78,8 @@ public class Test {
 		for(int i=1; i<ajout; i++)
 			fileImmut.ajout(i);
 
-		try {
-			for(int i=1; i<retrait; i++)
-				fileImmut.retrait();
-		} catch (EmptyQueueException e) {
-			e.printStackTrace();
-		}
+		for(int i=1; i<retrait; i++)
+			fileImmut.retrait();
 
 		temps = threadBean.getCurrentThreadCpuTime() - temps;
 		System.out.println(fileImmut.getClass() + " - ajout/retrait: " + (temps / diviseur));
