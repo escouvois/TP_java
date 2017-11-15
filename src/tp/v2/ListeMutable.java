@@ -7,14 +7,23 @@ public interface ListeMutable<E> extends Liste<E> {
 	/*
 	 * Accesseurs.
 	 */
+
 	default ListeMutable<E> reste() {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Méthode pour changer le reste de la liste
+	 * @param reste Nouveau reste à changer par l'ancien
+	 */
 	default void changerReste(ListeMutable<E> reste) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Méthode pour changer la tête de la liste
+	 * @param tete Nouvelle tête à changer par l'ancienne
+	 */
 	default void changerTete(E tete) {
 		throw new UnsupportedOperationException();
 	}
@@ -22,10 +31,18 @@ public interface ListeMutable<E> extends Liste<E> {
 	/*
 	 * Services
 	 */
+
 	default ListeMutable<E> miroir() {
 		return null;
 	}
 
+	/**
+	 * Méthode pour créer une nouvelle liste Mutable
+	 * @param t Tête de la liste
+	 * @param r Reste de la liste
+	 * @param <E> Type de la liste
+	 * @return Nouvelle liste créée
+	 */
 	public static <E> ListeMutable<E> cons(E t, ListeMutable<E> r) {
 		return new ListeMutable<E>() {
 			// TODO Définir les méthodes utiles.
@@ -103,6 +120,11 @@ public interface ListeMutable<E> extends Liste<E> {
 		};
 	}
 
+	/**
+	 * Méthode pour créer une nouvelle liste vide
+	 * @param <E> Type de la liste à créer
+	 * @return Nouvelle liste créée
+	 */
 	public static <E> ListeMutable<E> vide() {
 		return new ListeMutable<E>() {
 			
