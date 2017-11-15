@@ -8,18 +8,21 @@ public interface File<E> extends Iterable<E> {
 
 	/**
 	 * Méthode pour donner le premier élément de la file
+	 * Complexite O(1)
 	 * @return E : Un élément contenant le premier élément de la file
 	 */
 	E premier();
 
 	/**
 	 * Méthode pour déterminer la file qui suit après le premier élément
+	 * Complexite O(1)
 	 * @return File : Une file contenant la file courrante excepté la tête
 	 */
 	File<E> suivants();
 
 	/**
 	 * Méthode pour déterminer si la file est vide
+	 * Complexite O(1)
 	 * @return boolean : Un boolean détermiant si la liste est vide
 	 */
 	default boolean estVide() {

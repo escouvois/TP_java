@@ -6,11 +6,17 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 	ListeMutable<E> liste = ListeMutable.vide();
 	ListeMutable<E> fin = ListeMutable.vide();
 
+	/**
+	 * @see tp.v2.File#premier()
+	 */
 	@Override
 	public E premier() {
 		return liste.tete();
 	}
 
+	/**
+	 * @see tp.v2.FileMutable#suivants()
+	 */
 	@Override
 	public FileMutable<E> suivants() {
 		if(liste.estVide() && fin.estVide()) return null;
@@ -32,12 +38,18 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 		return this;
 	}
 
+	/**
+	 * @see tp.v2.File#taille()
+	 */
 	@Override
 	public int taille() {
 		return liste.taille() + fin.taille();
 	}
 
 
+	/**
+	 * @see java.lang.Iterable#iterator()
+	 */
 	@Override
 	public Iterator<E> iterator() {
 		return new Iterator<E>() {
@@ -61,6 +73,9 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 		};
 	}
 
+	/**
+	 * @see tp.v2.FileMutable#ajouter(java.lang.Object)
+	 */
 	@Override
 	public void ajouter(E element) {
 		fin = fin.miroir();
@@ -68,6 +83,9 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 		fin = fin.miroir();
 	}
 
+	/**
+	 * @see tp.v2.FileMutable#retirer()
+	 */
 	@Override
 	public void retirer() {
 		if (liste.casVide()) {
@@ -76,6 +94,9 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 		}
 	}
 
+	/**
+	 * @see tp.v2.FileMutable#creerCopie()
+	 */
 	@Override
 	public FileMutable<E> creerCopie() {
 		FileMutable<E> copie = this;
@@ -85,7 +106,8 @@ public class FileMutableImpl<E> implements FileMutable<E> {
 	
 	/**
 	 * Ajouter une liste à la liste
-	 * @param secondeFile
+	 * O(n)
+	 * @param secondeFile file à ajouter
 	 */
 	@Override
 	public void ajouter(File<E> secondeFile) {
@@ -94,6 +116,9 @@ public class FileMutableImpl<E> implements FileMutable<E> {
         }
 	}
 
+	/**
+	 * @see tp.v2.FileMutable#creer()
+	 */
 	@Override
 	public FileMutable<E> creer() {
 		return null;

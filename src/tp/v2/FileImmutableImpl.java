@@ -6,6 +6,9 @@ public class FileImmutableImpl<E> implements FileImmutable<E> {
 	Liste<E> liste = Liste.vide();
 	Liste<E> fin = Liste.vide();
 
+	/**
+	 * @see tp.v2.File#premier()
+	 */
 	@Override
 	public E premier() {
 		if (!liste.estVide()) {
@@ -15,11 +18,17 @@ public class FileImmutableImpl<E> implements FileImmutable<E> {
 		}
 	}
 
+	/**
+	 * @see tp.v2.File#taille()
+	 */
 	@Override
 	public int taille() {
 		return liste.taille() + fin.taille();
 	}
 
+	/**
+	 * @see java.lang.Iterable#iterator()
+	 */
 	@Override
 	public Iterator<E> iterator() {
 		return new Iterator<E>() {
@@ -39,6 +48,10 @@ public class FileImmutableImpl<E> implements FileImmutable<E> {
 		};
 	}
 
+	/**
+	 * O(n)
+	 * @see tp.v2.FileImmutable#suivants()
+	 */
 	@Override
 	public FileImmutable<E> suivants() {
 		if(liste.estVide() && fin.estVide()) return null;
@@ -71,11 +84,17 @@ public class FileImmutableImpl<E> implements FileImmutable<E> {
 	}
 	
 
+	/**
+	 * @see tp.v2.FileImmutable#creer()
+	 */
 	@Override
 	public FileImmutable<E> creer() {
 		return new FileImmutableImpl<>();
 	}
 
+	/**
+	 * @see tp.v2.FileImmutable#creer(java.lang.Object)
+	 */
 	@Override
 	public FileImmutable<E> creer(E dernier) {
 		FileImmutable<E> result = creer();

@@ -35,7 +35,7 @@ public interface FileMutable<E> extends File<E> {
 	
 	/**
 	 * Creer une copie de la liste actuelle.
-	 * @return
+	 * @return une copie de la file
 	 */
 	FileMutable<E> creerCopie(); 
 	
