@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import tp.v2.IterateurListe;
 
-public interface Liste<E> extends ListeParent<E> {
+public interface Liste<E> extends Iterable<E>{
 	/*
 	 * Accesseurs
 	 */
