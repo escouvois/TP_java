@@ -7,9 +7,7 @@ public interface File<K extends File<K,E>, E> extends Mesurable, Iterable<E>{
 	 */
 	E premier(); // Premier de la file
 	K suivants(); // Ses suivants
-	default boolean estVide() {
-		return this.taille() == 0;
-	}
+	boolean estVide();
 	
 	int taille();
 	
