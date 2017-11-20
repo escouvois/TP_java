@@ -9,6 +9,8 @@ package tp.v4;
  * (sans persistance) (amortissement relatif à l'ajout)
  */
 
+
+
 class EnveloppeDeuxListesImmutables<E> implements FileImmutable<E> {
 
 	private ListeInductiveImmutable<E> listeDebut; // liste de tete dans l'ordre
