@@ -1,41 +1,34 @@
-package tp.v3;
+package tp.v5;
 
 import java.util.Iterator;
 
-import tp.v5.FileMutable;
-
 public class FileMutableImplParEtat<E> implements FileMutable<E>{
 	
-	
+	EtatFileMutable<E> etat = new EtatFileMutableImpl<>();
 
 	@Override
 	public E premier() {
-		// TODO Auto-generated method stub
-		return null;
+		return etat.premier();
 	}
 
 	@Override
 	public FileMutable<E> suivants() {
-		// TODO Auto-generated method stub
-		return null;
+		return etat.suivants();
 	}
 
 	@Override
 	public boolean estVide() {
-		// TODO Auto-generated method stub
-		return false;
+		return etat.estVide();
 	}
 
 	@Override
 	public int taille() {
-		// TODO Auto-generated method stub
-		return 0;
+		return etat.taille();
 	}
 
 	@Override
 	public FileMutable<E> creer() {
-		// TODO Auto-generated method stub
-		return null;
+		return etat.creer();
 	}
 
 	@Override
@@ -46,20 +39,17 @@ public class FileMutableImplParEtat<E> implements FileMutable<E>{
 
 	@Override
 	public void ajouter(E element) {
-		// TODO Auto-generated method stub
-		
+		etat.ajouter(element);
 	}
 
 	@Override
 	public void retirer() {
-		// TODO Auto-generated method stub
-		
+		etat.retirer();
 	}
 
 	@Override
 	public FileMutable<E> creerCopie() {
-		// TODO Auto-generated method stub
-		return null;
+		return etat.creerCopie();
 	}
 
 }
