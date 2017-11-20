@@ -1,27 +1,31 @@
 package tp.v3;
 
-public interface FileImmutable<E> extends File<E> {
+public interface FileImmutable<E> extends File<FileImmutable<E>, E> {
 
 	/* 
 	 * Accesseurs
 	 */
-	FileImmutable<E> suivants();
 	
 	/*
 	 * Fabriques
 	 */
-	FileImmutable<E> creer();
 	FileImmutable<E> creer(E dernier);
+	
+	@Override
+	default FileImmutable<E> sujet() {
+		return this;
+	}
 	
 	/*
 	 * Services
 	 */
-		
-	/**
-	 * Renvoie la liste sans la tête.
-	 */
+	@Override
+	default FileImmutable<E> ajout(E dernierDansFile) {
+		return this.creer(dernierDansFile);
+	}
 	@Override
 	default FileImmutable<E> retrait() {
 		return this.suivants();
 	}
+
 }

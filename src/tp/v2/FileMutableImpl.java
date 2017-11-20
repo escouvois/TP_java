@@ -3,6 +3,7 @@ package tp.v2;
 import java.util.Iterator;
 
 public class FileMutableImpl<E> implements FileMutable<E> {
+	
 	ListeMutable<E> liste = ListeMutable.vide();
 	ListeMutable<E> fin = ListeMutable.vide();
 
