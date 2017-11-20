@@ -2,25 +2,30 @@ package tp.v5;
 
 public interface FileMutable<E>
 		extends File<FileMutable<E>, E>, IdentifiableParIteration<FileMutable<E>, E>, RepresentableParIteration<E> {
-
+	/*
+	 * Accesseurs
+	 */
+	void ajouter(E element);
+	void retirer();
 	
-	
+	/*
+	 * Fabrique
+	 */
+	FileMutable<E> creerCopie();
 	/*
 	 * Services
 	 */
 	@Override
-	FileMutable<E> ajout(E dernierDansFile); 
-		/*
-		 * this.ajouter(dernierDansFile);
-		 * return this;
-		 */
+	default
+	FileMutable<E> ajout(E dernierDansFile){
+		this.ajouter(dernierDansFile);
+		return this;
+	}
 		
 	@Override
-	FileMutable<E> retrait();
-		/*
-		 * this.retirer();
-		 * return this;
-		 */
-		
+	default FileMutable<E> retrait(){
+		this.retirer();
+		return this;
+	}	
 	
 }
