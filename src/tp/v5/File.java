@@ -2,8 +2,6 @@ package tp.v5;
 
 public interface File<K extends File<K,E>, E> extends Mesurable, Iterable<E>{
 
-	
-	
 	/*
 	 * Fabriques
 	 */
