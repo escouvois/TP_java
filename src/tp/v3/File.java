@@ -1,11 +1,14 @@
 package tp.v3;
 
-public interface File<E> extends Iterable<E> {
+import java.util.Iterator;
+
+public interface File<K extends File<K, E>, E> extends Iterable<E> {
+
 	/*
 	 * Accesseurs
 	 */
 	E premier();
-	File<E> suivants();
+	K suivants();
 	
 	default boolean estVide() {
 		return this.taille() == 0;
@@ -15,54 +18,51 @@ public interface File<E> extends Iterable<E> {
 	/*
 	 * Fabriques
 	 */
-	File<E> creer();
+	K creer();
+	K sujet();
 	
 	/*
 	 * Services
 	 */
-	File<E> ajout(E dernierDansFile);
-	File<E> retrait();
-	
-	
-	default File<E> ajout(File<E> secondeFile){
-		File<E> r = this;
+	K ajout(E dernierDansFile);
+	K retrait();
+	default K ajout(K secondeFile){
+		K r = this.sujet();
 		for(E e : secondeFile){
 			r = r.ajout(e);
 		}
 		return r;
 	}
 	
-	/**
-	 * Méthode recursive permettant d'afficher la liste.
-	 * @return la représentation sous forme de string de la liste.
-	 */
 	default String representation() {
-		return this.premier().toString().concat(this.suivants().representation());
+		if (this.estVide()) {
+			return "[]";
+		}
+		Iterator<E> iter = this.iterator();
+		StringBuilder r = new StringBuilder();
+		r.append("[");
+		r.append(iter.next().toString());
+		while (iter.hasNext()) {
+			r.append(", ");
+			r.append(iter.next().toString());
+		}
+		r.append("]");
+		return r.toString();
 	}
 
-	/**
-	 * De même que pour la representation, on fait une comparaison recursive.
-	 * 
-	 * @param file :  la file à comparer
-	 * @return boolean : un boolean exprimant si les files sont équivalentes ou non.
-	 */
-	default boolean estEgal(File<E> file){
-		//Si les deux file sont vides, elles sont égales, de plus, il s'agit d'une condition d'arrêt de la récursivité.
-		if(this.estVide() && file.estVide()){
-			return true;
-		}
-		
-		//Si une file est vide et pas l'autre, elles ne sont pas égales. Il s'agit aussi d'une condition d'arrêt de la récursivité.
-		if(this.estVide() && !file.estVide() || !this.estVide() && file.estVide()){
+	default boolean estEgal(K file){
+		if(this.taille() != file.taille()){
 			return false;
 		}
-		
-		//Si les éléments de têtes sont différents, les files sont différentes.
-		if(this.premier() != file.premier()){
-			return false;
+		Iterator<E> iter1 = this.iterator();
+		Iterator<E> iter2 = file.iterator();
+		while (iter1.hasNext()) {
+			if(!iter1.next().equals(iter2.next())){
+				return false;
+			}
 		}
-		
-		//Si on n'arrive pas à prouver l'égalité jusqu'ici, on descend d'un niveau dans la récursivité.
-		return(this.suivants().estEgal(file.suivants()));
+		return true;
 	}
+	
+	
 }
