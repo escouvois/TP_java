@@ -1,5 +1,7 @@
 package tp.v5;
 
+import java.util.Iterator;
+
 import tp.v2.FileMutableImpl;
 
 public class EtatFileMutableImpl<E> implements EtatFileMutable<E> {
@@ -54,7 +56,16 @@ public class EtatFileMutableImpl<E> implements EtatFileMutable<E> {
 	@Override
 	public FileMutable<E> creerCopie() {
 		FileMutable<E> file = creer();
-		return file.ajout(this.liste);
+		Iterator<E> iterListe = liste.iterator();
+		while (iterListe.hasNext()) {
+			file.ajout(iterListe.next());
+		}
+		Iterator<E> iterFin = fin.iterator();
+		while (iterFin.hasNext()) {
+			file.ajout(iterFin.next());
+		}
+		
+		return file;
 	}
 
 	@Override
