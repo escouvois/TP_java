@@ -1,7 +1,5 @@
 package tp.v5;
 
-import tp.v3.ListeMutable;
-
 public class EtatFileMutableImpl<E> implements EtatFileMutable<E> {
 	
 	ListeMutable<E> liste;

@@ -1,19 +1,17 @@
-package tp.v5.immutable;
+package tp.v5;
 
 import java.util.Iterator;
 
-import tp.v5.ListeImmutable;
-
-public class FileImmutableImpl<E> implements FileImmutable<E>{
+public class FileImmutableImplParEtat<E> implements FileImmutable<E>{
 	
 	EtatFileImmutableImpl<E> etat = new EtatFileImmutableImpl<E>();
 
-	public FileImmutableImpl(int taille, ListeImmutable<E> listeTete, ListeImmutable<E> listeFin) {
+	public FileImmutableImplParEtat(int taille, ListeImmutable<E> listeTete, ListeImmutable<E> listeFin) {
 		
 		etat =  new EtatFileImmutableImpl<E>(taille, listeTete, listeFin);
 	}
 
-	public FileImmutableImpl() {
+	public FileImmutableImplParEtat() {
 		etat = new EtatFileImmutableImpl<E>();
 	}
 

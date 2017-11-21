@@ -1,8 +1,4 @@
-package tp.v5.immutable;
-
-import java.util.Iterator;
-
-import tp.v5.ListeImmutable;
+package tp.v5;
 
 public class EtatFileImmutableImpl<E> implements EtatFileImmutable<E>{
 	private ListeImmutable<E> listeFin;
@@ -41,7 +37,7 @@ public class EtatFileImmutableImpl<E> implements EtatFileImmutable<E>{
 		if (this.estVide()) {
 			throw new UnsupportedOperationException();
 		}
-		return new FileImmutableImpl<E>(this.taille - 1, this.listeDebut.reste(), this.listeFin);
+		return new FileImmutableImplParEtat<E>(this.taille - 1, this.listeDebut.reste(), this.listeFin);
 	}
 
 	@Override
@@ -51,12 +47,12 @@ public class EtatFileImmutableImpl<E> implements EtatFileImmutable<E>{
 
 	@Override
 	public FileImmutable<E> creer() {
-		return new FileImmutableImpl<E>();
+		return new FileImmutableImplParEtat<E>();
 	}
 
 	@Override
 	public FileImmutable<E> creer(E dernier) {
-		return new FileImmutableImpl<>(this.taille + 1, this.listeDebut,
+		return new FileImmutableImplParEtat<>(this.taille + 1, this.listeDebut,
 				ListeImmutable.cons(dernier, this.listeFin));
 	}
 

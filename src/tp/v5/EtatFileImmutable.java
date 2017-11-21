@@ -1,5 +1,4 @@
-package tp.v5.immutable;
-
+package tp.v5;
 
 public interface EtatFileImmutable<E>  {
 	

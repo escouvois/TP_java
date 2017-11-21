@@ -1,8 +1,4 @@
-package tp.v5.immutable;
-
-import tp.v5.File;
-import tp.v5.IdentifiableParIteration;
-import tp.v5.RepresentableParIteration;
+package tp.v5;
 
 public interface FileImmutable<E>
 		extends File<FileImmutable<E>, E>, IdentifiableParIteration<FileImmutable<E>, E>, RepresentableParIteration<E> {
