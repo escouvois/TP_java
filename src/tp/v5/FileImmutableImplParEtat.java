@@ -42,8 +42,19 @@ public class FileImmutableImplParEtat<E> implements FileImmutable<E>{
 
 	@Override
 	public Iterator<E> iterator() {
-		//TODO
-		return null;
+		return new Iterator<E>() {
+
+			@Override
+			public boolean hasNext() {
+				return !etat.estVide();
+			}
+
+			@Override
+			public E next() {
+				return (E) etat.reste();
+			}
+			
+		};
 	}
 
 	@Override
