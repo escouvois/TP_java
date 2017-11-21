@@ -55,6 +55,7 @@ public class EtatFileMutableImpl<E> implements EtatFileMutable<E> {
 
 	@Override
 	public FileMutable<E> creerCopie() {
+		
 		FileMutable<E> file = creer();
 		Iterator<E> iterListe = liste.iterator();
 		while (iterListe.hasNext()) {
