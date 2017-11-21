@@ -2,8 +2,6 @@ package tp.v5;
 
 import java.util.Iterator;
 
-import tp.v2.FileMutableImpl;
-
 public class EtatFileMutableImpl<E> implements EtatFileMutable<E> {
 	
 	ListeMutable<E> liste;
