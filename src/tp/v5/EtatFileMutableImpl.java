@@ -1,5 +1,7 @@
 package tp.v5;
 
+import tp.v2.FileMutableImpl;
+
 public class EtatFileMutableImpl<E> implements EtatFileMutable<E> {
 	
 	ListeMutable<E> liste;
@@ -52,12 +54,12 @@ public class EtatFileMutableImpl<E> implements EtatFileMutable<E> {
 	@Override
 	public FileMutable<E> creerCopie() {
 		FileMutable<E> file = creer();
-		return file.ajout(this);
+		return file.ajout(this.liste);
 	}
 
 	@Override
 	public FileMutable<E> creer() {
-		return new EtatFileMutableImpl();
+		return new FileMutableImplParEtat<E>();
 	}
 
 
