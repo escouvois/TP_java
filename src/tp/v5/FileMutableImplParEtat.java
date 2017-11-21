@@ -33,8 +33,23 @@ public class FileMutableImplParEtat<E> implements FileMutable<E>{
 
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Iterator<E>() {
+
+			FileMutableImplParEtat<E> tmp = FileMutableImplParEtat.this;
+
+			@Override
+			public boolean hasNext() {
+				return !tmp.estVide();
+			}
+
+			@Override
+			public E next() {
+				E temp = tmp.premier();
+				tmp = (FileMutableImplParEtat<E>) tmp.suivants();
+				return temp;
+			}
+			
+		};
 	}
 
 	@Override
@@ -52,4 +67,8 @@ public class FileMutableImplParEtat<E> implements FileMutable<E>{
 		return etat.creerCopie();
 	}
 
+	@Override
+	public String toString() {
+		return this.representation();
+	}
 }

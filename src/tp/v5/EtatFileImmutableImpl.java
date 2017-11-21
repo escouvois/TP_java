@@ -55,14 +55,5 @@ public class EtatFileImmutableImpl<E> implements EtatFileImmutable<E>{
 		return new FileImmutableImplParEtat<>(this.taille + 1, this.listeDebut,
 				ListeImmutable.cons(dernier, this.listeFin));
 	}
-
-	@Override
-	public String toString() {
-		return this.representation();
-	}
-
-	private String representation() {
-		return this.listeDebut.representation().concat(this.listeFin.representation());
-	}
 	
 }

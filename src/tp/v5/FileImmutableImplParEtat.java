@@ -2,12 +2,12 @@ package tp.v5;
 
 import java.util.Iterator;
 
+
 public class FileImmutableImplParEtat<E> implements FileImmutable<E>{
 	
 	EtatFileImmutableImpl<E> etat = new EtatFileImmutableImpl<E>();
 
 	public FileImmutableImplParEtat(int taille, ListeImmutable<E> listeTete, ListeImmutable<E> listeFin) {
-		
 		etat =  new EtatFileImmutableImpl<E>(taille, listeTete, listeFin);
 	}
 
@@ -44,14 +44,18 @@ public class FileImmutableImplParEtat<E> implements FileImmutable<E>{
 	public Iterator<E> iterator() {
 		return new Iterator<E>() {
 
+			FileImmutableImplParEtat<E> tmp = FileImmutableImplParEtat.this;
+
 			@Override
 			public boolean hasNext() {
-				return !etat.estVide();
+				return !tmp.estVide();
 			}
 
 			@Override
 			public E next() {
-				return (E) etat.reste();
+				E temp = tmp.premier();
+				tmp = (FileImmutableImplParEtat<E>) tmp.suivants();
+				return temp;
 			}
 			
 		};
@@ -62,6 +66,8 @@ public class FileImmutableImplParEtat<E> implements FileImmutable<E>{
 		return etat.creer(dernier);
 	}
 	
-	
-
+	@Override
+	public String toString() {
+		return this.representation();
+	}
 }
