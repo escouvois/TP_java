@@ -1,5 +1,9 @@
 package tp.v5;
-
+/**
+ * Interface d'une liste immutable
+ * @author Bastien ESCOUVOIS, Lucas TAILLEBOURG, Ibrahima SOW
+ * @param <E> type de l'état
+ */
 public interface EtatFileImmutable<E>  {
 	
 	/*

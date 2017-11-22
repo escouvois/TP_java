@@ -1,7 +1,11 @@
 package tp.v5;
 
 import java.util.Iterator;
-
+/**
+ * Implémentation d'une file mutable suivant un patron de conception état
+ * @author Bastien ESCOUVOIS, Lucas TAILLEBOURG, Ibrahima SOW
+ * @param <E>
+ */
 public class FileMutableImplParEtat<E> implements FileMutable<E>{
 	
 	EtatFileMutable<E> etat = new EtatFileMutableImpl<>();

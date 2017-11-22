@@ -1,5 +1,10 @@
 package tp.v5;
 
+/**
+ * Interface d'une liste mutable
+ * @author Bastien ESCOUVOIS, Lucas TAILLEBOURG, Ibrahima SOW
+ * @param <E> type
+ */
 public interface EtatFileMutable<E> {
 	/*
 	 * Accesseurs

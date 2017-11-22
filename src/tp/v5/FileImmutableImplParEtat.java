@@ -3,6 +3,11 @@ package tp.v5;
 import java.util.Iterator;
 
 
+/**
+ * Implémentation d'une file immutable suivant un patron de conception état
+ * @author Bastien ESCOUVOIS, Lucas TAILLEBOURG, Ibrahima SOW
+ * @param <E> type
+ */
 public class FileImmutableImplParEtat<E> implements FileImmutable<E>{
 	
 	EtatFileImmutableImpl<E> etat = new EtatFileImmutableImpl<E>();

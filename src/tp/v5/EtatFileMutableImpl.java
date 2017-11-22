@@ -1,7 +1,11 @@
 package tp.v5;
 
 import java.util.Iterator;
-
+/**
+ * Implémentation d'une liste mutable
+ * @author Bastien ESCOUVOIS, Lucas TAILLEBOURG, Ibrahima SOW
+ * @param <E> type
+ */
 public class EtatFileMutableImpl<E> implements EtatFileMutable<E> {
 	
 	ListeMutable<E> liste;

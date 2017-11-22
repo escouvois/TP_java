@@ -1,5 +1,9 @@
 package tp.v5;
-
+/**
+ * Implémentation d'une liste immutable
+ * @author Bastien ESCOUVOIS, Lucas TAILLEBOURG, Ibrahima SOW
+ * @param <E> type
+ */
 public class EtatFileImmutableImpl<E> implements EtatFileImmutable<E>{
 	private ListeImmutable<E> listeFin;
 	private ListeImmutable<E> listeDebut;
