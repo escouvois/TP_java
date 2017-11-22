@@ -12,6 +12,7 @@ public interface FileMutable<E>
 	 * Fabrique
 	 */
 	FileMutable<E> creerCopie();
+	
 	/*
 	 * Services
 	 */
