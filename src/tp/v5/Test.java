@@ -1,6 +1,7 @@
 
 public class Test {
 
+	//Bastien casser
 	public static void main(String[] args) {
 		/*
 		 * Cas d'une file immutable
