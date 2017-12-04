@@ -21,5 +21,7 @@ public class IterateurEtatFileImmutable<E, K extends EtatFile<K, E>> implements 
 		this.courant = this.courant.suivants();
 		return r;
 	}
+	
+	
 
 }
