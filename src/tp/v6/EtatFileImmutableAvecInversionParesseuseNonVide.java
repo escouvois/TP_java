@@ -54,7 +54,13 @@ public class EtatFileImmutableAvecInversionParesseuseNonVide<E> implements EtatI
 
 	@Override
 	public EtatFileImmutable<E> suivants() {
-		throw new IllegalStateException();
+		if (this.taille <= 1) {
+			return new EtatFileImmutableAvecInversionParesseuseVide<>();
+		}
+		if (!this.fm.estVide()) {
+			this.fm.premier().inverser();
+		}
+		return new EtatFileImmutableAvecInversionParesseuseNonVide<>(this.taille - 1, this.fm, this.ld.reste(), this.lf);
 	}
 
 	@Override

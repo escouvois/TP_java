@@ -10,17 +10,17 @@ public interface EtatImmutableAvecInversionParesseuse<E> extends EtatFileImmutab
 	
 	@Override
 	default public E premier() {
-		throw new IllegalStateException();
+		throw new UnsupportedOperationException();
 	}
 	
 	@Override
 	default public EtatFileImmutable<E> suivants(){
-		throw new IllegalStateException();
+		throw new UnsupportedOperationException();
 	}
 	
 	@Override
 	default public int taille() {
-		throw new IllegalStateException();
+		throw new UnsupportedOperationException();
 	}
 	
 	/*
