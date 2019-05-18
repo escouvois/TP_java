@@ -6,5 +6,5 @@ DÃ©pÃ´t pour les TPs.
 #TP1
 #######################
 
-Nous avons fait deux implémentations, ne sachant pas laquelle préférer à l'autre.
-Dans la première nous avons construit la file chainée, dans la seconde nous avons utilisé l'objet LinkedBlockingQueue.
+Nous avons fait deux implÃ©mentations, ne sachant pas laquelle prÃ©fÃ©rer Ã  l'autre.
+Dans la premiÃ¨re nous avons construit la file chainÃ©e, dans la seconde nous avons utilisÃ© l'objet LinkedBlockingQueue.
